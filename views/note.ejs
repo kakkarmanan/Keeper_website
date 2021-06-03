@@ -1,0 +1,54 @@
+<%- include('partials/header') %>
+
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light nav_dec">
+        <a class="navbar-brand" href="#">NOTE</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <form method="POST" action="/reminderPage">  
+              <input type="hidden" name="username" value=<%= user %> >  
+                <button class="nav-link">Reminder <span class="sr-only">(current)</span></a>
+              </form>
+            </li>
+          </ul>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a href="/">Logout</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0" method="POST">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> <%= user %> </button>
+          </form>
+        </div>
+      </nav>
+</div>
+
+<div>
+
+    <form action="/note" class="create-note" method="post">
+      <input type="hidden" name="username" value=<%= user %> >
+      <input type="text" placeholder="Title" name="noteTitle" class="">
+      <input type="text" placeholder="Add a note..." name="noteContent" class=""></input>
+      <button type="submit" class="note" name="note">Add</button>
+    </form>
+
+</div>
+
+<% notes.forEach(function(note) { %>
+  <form action="/deleteNote" method="POST">
+    <div class="note">
+      <h1><%= note.n_title %></h1>
+      <p><%= note.n_content %></p>
+      <input type="hidden" name="noteId" value="<%= note._id %>">
+      <input type="hidden" name="username" value="<%=user%>">
+      <button type="submit" class="fa fa-trash" ></button>
+    </div>
+  </form>
+<% }) %>
+<%- include('partials/footer') %>

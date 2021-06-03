@@ -1,0 +1,24 @@
+{
+  "name": "keeper_website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Manan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "create-react-app": "^4.0.3",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.12.5",
+    "mongoose-auto-increment": "^5.0.1",
+    "mongoose-encryption": "^2.1.0",
+    "nodemon": "^2.0.7",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
